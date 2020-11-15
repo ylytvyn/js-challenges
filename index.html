@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="Javascript Tasks">
+	<meta name="author" content="Julianka">
+	<title>Javascript Tasks</title>
+
+	<link rel="icon" href="images/favicon.png">
+
+	<link rel="stylesheet" href="css/libs/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="css/styles.min.css">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<aside class="sidebar">
+		<p data-task="lessons" class="btn">Lessons</p>
+		<p data-task="tasks" class="btn">Homeworks</p>
+	</aside>
+	<main class="content">
+		<ul class="list" data-list="lessons">
+			<li class="list__item" data-src="lessons/1.html">1. Javascript Basis</li>
+			<li class="list__item" data-src="lessons/js-2/index.html">2. Data types and operators</li>
+			<li class="list__item" data-src="https://ylytvyn.github.io/simple-test/">3. Simple test (Loops)</li>
+			<li class="list__item" data-src="https://ylytvyn.github.io/todo-list/">4. Simple ToDo List (Functions)</li>
+			<li class="list__item" data-src="https://ylytvyn.github.io/guess-number/">5. Guess the number</li>
+			<li class="list__item" data-src="lessons/js-6/index.html">6. Employee Dashboard</li>
+		</ul>
+		<ul class="list" data-list="tasks">
+			<li class="list__item" data-src="tasks/1.html">Task 1. Flashdisk</li>
+			<li class="list__item" data-src="tasks/2.html">Task 2. Money and Chocolates</li>
+			<li class="list__item" data-src="tasks/3.html">Task 3. Bank and Deposite</li>
+		</ul>
+
+		<iframe class="viewer" frameborder="0"></iframe>
+	</main>
+
+	<!-- Scripts -->
+	<script src="js/libs/jquery-3.5.1.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

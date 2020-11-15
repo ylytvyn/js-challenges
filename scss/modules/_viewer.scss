@@ -1,0 +1,14 @@
+.viewer {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    width: 100%;
+    transition: all .3s;
+    background-color: #fff; 
+
+    &--active {
+        opacity: 1;
+        visibility: visible;
+        height: 100%;
+    }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>My first Script</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button>Who Are You?</button>
+    <p id="welcome">Dear <b class="name"></b>, </p>
+
+    <script>
+        // Variables
+        let myText = 'welcome to my world!',
+            $welcomeP = document.querySelector('p'),
+            myName = 'NoName',
+            $myButton = document.getElementsByTagName('button')[0],
+            myQuestion;
+
+        $myButton.onclick = whoAreYouFunction;
+
+        function whoAreYouFunction() {
+            myQuestion = prompt('Please enter your name', 'Vasya');
+
+            if (myQuestion !== '' && myQuestion !== null) {
+                myName = myQuestion;
+            }
+
+            welcome.innerHTML += myText;
+
+            document.getElementsByClassName('name')[0].innerHTML = myName;
+        }
+
+        $welcomeP.style.backgroundColor = 'red';
+        $welcomeP.style.color = 'white';
+    </script>
+</body>
+</html>

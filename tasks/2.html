@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Money and Chocolates</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px 10px;
+            margin: 5px 0;
+            font: 15px 'Bitter', serif;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 2.</h1>
+    <p>Пользователь вводит сумму денег в кошельке и цену одной шоколадки. Программа выводит, сколько шоколадок может купить пользователь, и сколько сдачи у него останется.</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>Money ($) in the Wallet: </label>
+        <input type="number" name="wallet" placeholder="Enter"><br>
+        <label>Chocolate Price: </label>
+        <input type="number" name="price" placeholder="Enter"><br>
+        <button type="button" class="calculate">How many chocolates I can buy?</button>
+    </form>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate');
+            calculateBtn.onclick = calculateFn;
+        })();
+
+        function calculateFn() {
+            let form = document.forms['result'],
+                wallet = form.wallet,
+                price = form.price,
+                quantity = 0,
+                moneyLeft = 0;
+                
+            wallet.classList.remove('invalid');
+            price.classList.remove('invalid');
+
+            if (wallet.value === '' || price.value === '') {
+                alert('Please, enter your values');
+                if (wallet.value === '') wallet.className = 'invalid';
+                if (price.value === '') price.className = 'invalid';
+                return;
+            }
+
+            quantity = Math.floor(parseInt(wallet.value) / parseInt(price.value));
+            moneyLeft = parseInt(wallet.value) % parseInt(price.value);
+
+            alert(`You can buy ${quantity} chocolates and you will get $${moneyLeft} change`)
+        }
+
+    </script>
+</body>
+</html>

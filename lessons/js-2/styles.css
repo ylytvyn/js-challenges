@@ -1,0 +1,101 @@
+body {
+	font: 15px 'Bitter', serif;
+}
+
+h1, h2 {
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+input {
+	padding: 5px 10px;
+	margin: 5px 0;
+	font: 15px 'Bitter', serif;
+}
+
+button {
+	padding: 5px 10px;
+	font: 600 14px 'Bitter', serif;
+	cursor: pointer;
+	margin-top: 15px;
+}
+
+.flip-container div {
+	width: 100px;
+	height: 100px;
+	background-size: cover;
+	animation: flip .9s 1;
+}
+
+.heads {
+	background-image: url('images/heads.png');
+}
+
+.tails {
+	background-image: url('images/tails.png');
+}
+
+code {
+	display: flex;
+	font: 600 15px 'Bitter', serif;
+}
+.wrapper {
+	margin-right: 20px;
+}
+.wrapper p {
+	margin: 15px 0 0;
+}
+[class^="dice-"] {
+	background-image: url('images/dice.jpg');
+	background-repeat: no-repeat;
+	width: 97px;
+	height: 97px;
+	border: 2px solid;
+	animation: rotate .5s 1;
+}
+.dice-1 {
+	background-position: -102px -102px;
+}
+.dice-2 {
+	background-position: -102px -201px;
+}
+.dice-3 {
+	background-position: -2px -200px;
+}
+.dice-4 {
+	background-position: -102px -201px;
+}
+.dice-5 {
+	background-position: -102px -2px;
+}
+.dice-6 {
+	background-position: -102px -300px;
+}
+
+@keyframes flip {
+	0% {
+		transform: rotateX(0deg);
+	}
+	50% {
+		transform: rotateX(360deg);
+	}
+	100% {
+		transform: rotateX(720deg);
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: scale(0) rotateZ(0deg);
+	}
+	50% {
+		transform: scale(.5) rotateZ(360deg);
+	}
+	100% {
+		transform: scale(1) rotateZ(720deg);
+	}
+}
+
+.invalid {
+	border-color: red;
+}

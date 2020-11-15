@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Flashdisk</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px 10px;
+            margin: 5px 0;
+            font: 15px 'Bitter', serif;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 1.</h1>
+    <p>Пользователь указывает объем флешки в Гб. Программа должна посчитать, сколько файлов размером в 820 Мб помещается на флешку.</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>Flashdisk Size (Gb)</label><br>
+        <input type="number" name="flashdisk" placeholder="Enter"><br>
+        <button type="button" class="calculate">Calculate Quantity of FILES (820Mb)</button>
+    </form>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate');
+            calculateBtn.onclick = calculateFn;
+        })();
+
+        function calculateFn() {
+            let form = document.forms['result'],
+                size = form.flashdisk,
+                quantity = 0;
+                
+            size.classList.remove('invalid');
+
+            if (size.value === '') {
+                alert('Please, enter size of your Flashdisk');
+                if (size.value === '') size.className = 'invalid';
+                return;
+            }
+
+            quantity = Math.floor((parseInt(size.value) * 1024) / 820);
+
+            alert(`There are ${quantity} files on your ${size.value}Gb Flashdisk`)
+        }
+
+    </script>
+</body>
+</html>

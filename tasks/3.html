@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Bank and Deposite</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px 10px;
+            margin: 5px 0;
+            font: 15px 'Bitter', serif;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 3.</h1>
+    <p>Пользователь вводит сумму вклада в банк на 2 месяца, с процентной ставкой депозита 5% годовых. Вывести сумму начисленных процентов.</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>Deposite ($): </label>
+        <input type="number" name="money" placeholder="Value of Deposit"><br>
+        <button type="button" class="calculate">Calculate profit ($)</button>
+    </form>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate');
+            calculateBtn.onclick = calculateFn;
+        })();
+
+        function calculateFn() {
+            let form = document.forms['result'],
+                money = form.money,
+                profit = 0,
+                time = 61, // 2 month
+                percent = 5;
+                
+                money.classList.remove('invalid');
+
+            if (money.value === '') {
+                alert('Please, enter value of deposit');
+                if (money.value === '') money.className = 'invalid';
+                return;
+            }
+
+            profit = parseInt(money.value) * percent * time / 365 / 100;
+
+            alert(`You can get $${profit.toFixed(2)} if you put $${money.value} in the bank on a deposit for ${time} days, with a rate of ${percent}% per year.`)
+        }
+
+    </script>
+</body>
+</html>
