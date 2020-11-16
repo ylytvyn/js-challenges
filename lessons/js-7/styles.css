@@ -1,0 +1,77 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+	scroll-behavior: smooth;
+}
+
+body, html {
+	min-height: 100%;
+	width: 100%;
+}
+
+body {
+	font: 15px 'Bitter', serif;
+	background-color: #f3a35e;
+	color: #fff;
+}
+
+button {
+    padding: 5px 10px;
+    font: 600 16px 'Bitter', serif;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.container {
+	width: 100%;
+	max-width: 1024px;
+	min-width: 400px;
+	margin: 0 auto;
+	padding: 0 0 0 15px;
+	display: flex;
+}
+
+form {
+	width: 300px;
+	height: 100vh;
+	padding-top: 10px;
+}
+
+.show {
+	flex-grow: 1;
+	background-color: #050505;
+	display: flex;
+	align-items: flex-start;
+}
+
+.show p {
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	float: left;
+	margin: 10px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.show img {
+	width: 100%;
+}
+
+.img {
+	flex-grow: 1;
+}
+
+input, select {
+	border: 1px solid #050505;
+	padding: 5px 10px;
+	font: 15px 'Bitter', serif;
+	margin-bottom: 10px;
+	width: 80%;
+}
