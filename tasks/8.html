@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Palindrome</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px;
+            margin: 5px;
+            font: 15px 'Bitter', serif;
+            width: 100px;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 8.</h1>
+    <p>Запросить у пользователя число и определить, является ли оно палиндромом.</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>Please, insert your number: </label>
+        <input type="number" name="number">
+        <button type="button" class="calculate">Check</button>
+    </form>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate');
+            calculateBtn.onclick = calculateFn;
+        })();
+
+        function calculateFn() {
+            let form = document.forms['result'],
+                num = form.number;
+
+                num.classList.remove('invalid');
+
+            if (num.value === '') {
+                alert('Please, enter your number');
+                if (num.value === '') num.className = 'invalid';
+                return;
+            }
+
+            if (num.value === num.value.split('').reverse().join('')) {
+                alert(`Your number ${num.value} is Palindrome`);
+            } else {
+                alert(`Your number ${num.value} is not a Palindrome`);
+            }
+        }
+    </script>
+</body>
+</html>

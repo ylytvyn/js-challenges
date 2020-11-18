@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Human Age</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px 10px;
+            margin: 5px 0;
+            font: 15px 'Bitter', serif;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 4.</h1>
+    <p>Запросить у пользователя его возраст и определить, кем он является: ребенком (0–12), подростком (12–18), взрослым (18-60) или пенсионером (60– ...).</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>I was born in: </label>
+        <input type="number" name="year" placeholder="Year"><br>
+        <button type="button" class="calculate">Who am I?</button>
+    </form>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate');
+            calculateBtn.onclick = calculateFn;
+        })();
+
+        function calculateFn() {
+            let form = document.forms['result'],
+                year = form.year,
+                humanType, age;
+
+            const currentYear = new Date().getFullYear();
+                
+            year.classList.remove('invalid');
+
+            if (year.value === '') {
+                alert('Please, enter your year of birth');
+                if (year.value === '') year.className = 'invalid';
+                return;
+            }
+
+            age = currentYear - parseInt(year.value);
+
+            if (age < 12) {
+                humanType = 'child';
+            } else if (age >= 12 && age < 18) {
+                humanType = 'teenager';
+            } else if (age >= 18 && age < 60) {
+                humanType = 'adult';
+            } else if (age >= 61 && age < 100) {
+                humanType = 'retired';
+            } else if (age >= 100) {
+                humanType = 'centenarian';
+            }
+
+            alert(`You are ${humanType}.`);
+        }
+
+    </script>
+</body>
+</html>

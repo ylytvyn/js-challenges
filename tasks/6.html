@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Currency Converter</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input, select {
+            padding: 5px;
+            margin: 5px;
+            font: 15px 'Bitter', serif;
+            width: 100px;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 6.</h1>
+    <p>Написать конвертор валют. Пользователь вводит количество UAH, выбирает, в какую валюту хочет перевести USD, EUR, GBP или PLN, и получает в ответ соответствующую сумму.</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>I want to convert: </label>
+        <input type="number" name="money" placeholder="UAH">
+        <label>UAH to </label>
+        <select name="type">
+            <option value="USD" selected>USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="PLN">PLN</option>
+        </select>
+        <button type="button" class="calculate">Convert</button>
+    </form>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate');
+            calculateBtn.onclick = calculateFn;
+        })();
+
+        function calculateFn() {
+            let form = document.forms['result'],
+                money = form.money,
+                moneyValue = parseInt(money.value),
+                type = form.type,
+                sum = 0;
+
+                money.classList.remove('invalid');
+
+            if (money.value === '') {
+                alert('Please, enter the quantity of money');
+                if (money.value === '') money.className = 'invalid';
+                return;
+            }
+
+            switch (type.value) {
+                case 'USD':
+                    sum = moneyValue * 0.0356;
+                    break;
+                case 'EUR':
+                    sum = moneyValue * 0.0299;
+                    break;
+                case 'GBP':
+                    sum = moneyValue * 0.0268;
+                    break;
+                case 'PLN':
+                    sum = moneyValue * 0.1346;
+                    break;
+            }
+
+            alert(`You will get ${sum.toFixed(2)} ${type.value}`);
+        }
+
+    </script>
+</body>
+</html>

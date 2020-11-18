@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Leap Year</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px 10px;
+            margin: 5px 0;
+            font: 15px 'Bitter', serif;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 5.</h1>
+    <p>Запросить у пользователя год и проверить, високосный он или нет. Високосный год либо кратен 400, либо кратен 4 и при этом не кратен 100.</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>Give me a year: </label>
+        <input type="number" name="year" placeholder="Year"><br>
+        <button type="button" class="calculate">Check the YEAR</button>
+    </form>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate');
+            calculateBtn.onclick = calculateFn;
+        })();
+
+        function calculateFn() {
+            let form = document.forms['result'],
+                year = form.year,
+                yearValue = parseInt(year.value);
+
+            year.classList.remove('invalid');
+
+            if (year.value === '') {
+                alert('Please, enter the year');
+                if (year.value === '') year.className = 'invalid';
+                return;
+            }
+
+            if ((yearValue % 400 === 0) ||
+                (yearValue % 4 === 0 && yearValue % 100 !== 0)) {
+                alert(`${year.value} is a LEAP year`);
+            } else {
+                alert(`${year.value} is NOT a LEAP year`);
+            }
+        }
+
+    </script>
+</body>
+</html>

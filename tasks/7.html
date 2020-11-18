@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Discount Amount</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px;
+            margin: 5px;
+            font: 15px 'Bitter', serif;
+            width: 100px;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 7.</h1>
+    <p>Запросить у пользователя сумму покупки и вывести сумму к оплате со скидкой: от 200 до 300 – скидка будет 3%, от 300 до 500 – 5%, от 500 и выше – 7%.</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>Amount of purchase: </label>
+        <input type="number" name="money" placeholder="UAH">
+        <button type="button" class="calculate">Count my discount</button>
+    </form>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate');
+            calculateBtn.onclick = calculateFn;
+        })();
+
+        function calculateFn() {
+            let form = document.forms['result'],
+                money = form.money,
+                moneyValue = parseInt(money.value),
+                percent = 0;
+
+                money.classList.remove('invalid');
+
+            if (money.value === '') {
+                alert('Please, enter the quantity of money');
+                if (money.value === '') money.className = 'invalid';
+                return;
+            }
+
+            if (moneyValue >= 200 && moneyValue < 300) {
+                percent = 0.03;
+            } else if (moneyValue >= 300 && moneyValue < 500) {
+                percent = 0.05;
+            } else if (moneyValue >= 500) {
+                percent = 0.07;
+            }
+
+            alert(`You should pay ${(moneyValue - (moneyValue * percent)).toFixed(2)} UAH.\nYour discount for this purchase is ${(percent * 100).toFixed(0)}%`);
+        }
+
+    </script>
+</body>
+</html>
