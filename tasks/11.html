@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>FizzBuzz</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px;
+            margin: 5px;
+            font: 15px 'Bitter', serif;
+            width: 100px;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        p span {
+            margin-right: 7px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 11.</h1>
+    <p>Написать функцию, выводящую в консоль числа от 1 до n, где n — это целое число, которая функция принимает в качестве параметра, с такими условиями:<br>
+        - вывод fizz вместо чисел, кратных 3;<br>
+        - вывод buzz вместо чисел, кратных 5;<br>
+        - вывод fizzbuzz вместо чисел, кратных как 3, так и 5.</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>Please, insert your number: </label>
+        <input type="number" name="number">
+        <button type="button" class="calculate">Check</button>
+    </form>
+    <p id="resultBlock">Result: </p>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate'),
+                number = document.forms['result'].number;
+
+            calculateBtn.onclick = () => {
+                number.classList.remove('invalid');
+
+                if (number.value === '') {
+                    alert('Please, enter your number');
+                    if (number.value === '') number.className = 'invalid';
+                } else {
+                    calculateFn(number.value);
+                }
+                
+            };
+        })();
+
+        function calculateFn(number) {
+            for (let i = 1; i <= number; i++) {
+                let result;
+
+                if (i % 3 === 0 && i % 5 === 0) {
+                    result = 'fizzbuzz';
+                } else if (i % 3 === 0) {
+                    result = 'fizz';
+                } else if (i % 5 === 0) {
+                    result = 'bazz';
+                } else {
+                    result = i;
+                }
+
+                resultBlock.innerHTML += `<span>${result}</span>`;
+            }
+        }
+    </script>
+</body>
+</html>

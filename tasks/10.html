@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Multiplication Table</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .row {
+            display: flex;
+        }
+        .row > div {
+            border: 1px solid #ccc;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 28px;
+        }
+        .title {
+            font-weight: 600;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 10.</h1>
+    <p>Вывести таблицу умножения для всех чисел от 2 до 9. Каждое число необходимо умножить на числа от 1 до 10.</p>
+    
+    <h2>Решение:</h2>
+
+    <div class="result"></div>
+    
+    <script>
+        'use strict';
+
+        function drawTable() {
+            let wrapper = document.querySelector('.result'),
+                colClass;
+
+            for(var i = 1; i < 10; i++) {
+                wrapper.innerHTML += `<div class="row" data-row=${i}>`;
+
+                for(var j = 1; j < 10; j++) {
+                    let row = document.querySelector(`[data-row="${i}"]`);
+                    colClass = j === 1 || i === 1 ? 'title': '';
+
+                    row.innerHTML += `<div class="${colClass}" data-id="col_${i}_${j}">${i*j}</div>`;
+                }
+            }
+
+        }
+
+        drawTable();
+    </script>
+</body>
+</html>

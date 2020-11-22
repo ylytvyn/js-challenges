@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Day of week</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px;
+            margin: 5px;
+            font: 15px 'Bitter', serif;
+            width: 100px;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 9.</h1>
+    <p>Зациклить вывод дней недели таким образом: «День недели. Хотите увидеть следующий день?» и так до тех пор, пока пользователь нажимает OK.</p>
+    
+    <h2>Решение:</h2>
+
+    <button type="button" class="show">Let's GO!</button>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let showBtn = document.querySelector('.show');
+            showBtn.onclick = showFn;
+        })();
+
+        function showFn() {
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            let currDay = 0;
+
+            while (confirm(`${days[currDay]}. Do you wanna see the next day of the week?`)) {
+                currDay = (currDay + 1) % days.length;
+            }
+        }
+    </script>
+</body>
+</html>
