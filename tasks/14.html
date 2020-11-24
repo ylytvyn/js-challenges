@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Factorial</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px;
+            margin: 5px;
+            font: 15px 'Bitter', serif;
+            width: 100px;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        p span {
+            margin-right: 7px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 14.</h1>
+    <p>Написать функцию, которая вычисляет факториал переданного ей числа.</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>Please, insert your number: </label>
+        <input type="number" name="number">
+        <button type="button" class="calculate">Factorial it!</button>
+    </form>
+    <p id="resultBlock"></p>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate'),
+                number = document.forms['result'].number;
+
+            calculateBtn.onclick = () => {
+                number.classList.remove('invalid');
+
+                if (number.value === '') {
+                    alert('Please, enter your number');
+                    if (number.value === '') number.className = 'invalid';
+                } else {
+                    resultBlock.innerHTML = `Result: ${factorial(parseInt(number.value))}`;
+                }
+                
+            };
+        })();
+
+        function factorial(number) {
+            return number ? number * factorial(number - 1) : 1;
+        }
+    </script>
+</body>
+</html>

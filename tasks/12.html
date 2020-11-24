@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Square Area</title>
+    <style>
+        body {font: 15px 'Bitter', serif}
+        h1,h2 {font-weight: 600}
+        .invalid {border-color: red}
+        input {
+            padding: 5px;
+            margin: 5px;
+            font: 15px 'Bitter', serif;
+            width: 100px;
+        }
+        button {
+            padding: 5px 10px;
+            font: 600 14px 'Bitter', serif;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        p span {
+            margin-right: 7px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задача 12.</h1>
+    <p>Написать функцию, которая принимает длину и ширину прямоугольника и вычисляет его площадь. Если в функцию передали 1 параметр, то она вычисляет площадь квадрата.</p>
+    
+    <h2>Решение:</h2>
+
+    <form action="#" id="result">
+        <label>Please, insert sides: </label>
+        <input type="number" name="sideA" placeholder="Side A">
+        <input type="number" name="sideB" placeholder="Side B">
+        <button type="button" class="calculate">Calculate area</button>
+    </form>
+    <p id="resultBlock"></p>
+    
+    <script>
+        'use strict';
+
+        (function() {
+            let calculateBtn = document.querySelector('.calculate'),
+                sideA = document.forms['result'].sideA,
+                sideB = document.forms['result'].sideB;
+
+            calculateBtn.onclick = () => {
+                sideA.classList.remove('invalid');
+
+                if (sideA.value === '') {
+                    alert('Please, enter at least side A');
+                    sideA.className = 'invalid';
+                } else {
+                    sideB.value === '' ? calculateFn(sideA.value) : calculateFn(sideA.value, sideB.value);
+                }
+                
+            };
+        })();
+
+        function calculateFn(a, b = a) {
+            resultBlock.innerHTML = `S = ${a*b}`;
+        }
+    </script>
+</body>
+</html>
