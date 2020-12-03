@@ -74,16 +74,23 @@ body, html {
 
 body {
   font: 300 15px 'Bitter', serif;
-  background: url("../images/bg.jpg") no-repeat top left;
+  background: url("../images/main.jpg") no-repeat top left;
   background-size: cover;
-  max-width: 100vw;
-  min-width: 1024px;
-  height: 100vh;
-  padding: 12vh 9vw;
   color: #fff;
+  padding: 12vh 5vw;
+}
+
+.container {
+  height: 73vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background: #1b1927;
+  border: 15px solid #603c3c;
+  border-radius: 5px;
+  padding: 30px;
+  -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.6), inset 0 0 15px 0 rgba(0, 0, 0, 0.6);
+          box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.6), inset 0 0 15px 0 rgba(0, 0, 0, 0.6);
 }
 
 .sidebar {
